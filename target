@@ -1,0 +1,42 @@
+# Searches web page for target keyword
+# If located, displays number of occurances
+
+## Python3
+
+def thorough_search(url, keyword):
+
+  import urllib.request
+  import re
+  html_content = (urllib.request.urlopen(url).read())
+
+  matches = re.findall(str(keyword), str(html_content))
+
+  if len(matches) == 0: 
+     print('Target was not found.')
+  else:
+     print('Target was located')
+
+  new = []
+
+  html_content = urllib.request.urlopen(url).read()
+  new =  [html_content]
+  new = matches
+  searchy =+ new.count(str(keyword))
+  if searchy == 0:
+  
+      print('Check for spelling errors.')
+
+  elif searchy == 1:
+
+      print('and appears ' + str(searchy) + ' time.')
+  
+  else:
+  
+      print('and appears ' + str(searchy) + ' times.')
+
+
+
+# When calling function, enter each input with ' '
+
+## example:
+thorough_search('https://your-target-web-page/', 'keyword')
