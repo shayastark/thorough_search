@@ -1,32 +1,38 @@
 # Searches web page for target keyword
 # If located, displays number of occurances
+# Creates list of search targets
 
 def thorough_search(url, keyword):
-
+  
+  print('Enter URL, beginning with https//')
+  url = input()
+  print('Enter target')
+  keyword = input()
   import urllib.request
   import re
+  
   html_content = (urllib.request.urlopen(url).read())
 
   matches = re.findall(str(keyword), str(html_content))
-  
+
+ # creates a list. planning to adjust list functionality 
   new = []
   
   new = matches
   searchy =+ new.count(str(keyword))
   
+  # loop to break redundancy when adding to list
   for new_list in matches:
     break
   
-  if len(matches) == 0: 
+  # rules for printing output
+  if len(matches) == 0 or searchy == 0: 
      print('Target: ' + keyword + ' in ' + url + ' was not found.' + ' Check for spelling errors.')
-  
   elif len(matches) == 1 or searchy == 1:
      print('Target: ' + keyword + ' in ' + url + ' was located and appears ' + str(searchy) + ' time.')
   
   else:
      print('Target: ' + keyword + ' in ' + url + ' was located and appears ' + str(searchy) + ' times.')
 
-# When calling function, enter each input with ' '
-
-## example:
-thorough_search('https://your-target-web-page/', 'keyword')
+# calls funtion, asks for input, assigns values for (url, keyword)  
+thorough_search(input, input) 
