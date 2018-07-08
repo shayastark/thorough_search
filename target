@@ -26,7 +26,7 @@ def thorough_search(url, keyword):
     break
   
   # rules for printing output
-  if len(matches) == 0 or searchy == 0: 
+  if len(matches) == 0: 
      print('Target: ' + keyword + ' in ' + url + ' was not found.' + ' Check for spelling errors.')
   elif len(matches) == 1 or searchy == 1:
      print('Target: ' + keyword + ' in ' + url + ' was located and appears ' + str(searchy) + ' time.')
