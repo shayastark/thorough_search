@@ -4,9 +4,9 @@
 
 def thorough_search(url, keyword):
   
-  print('Enter URL, beginning with https//')
+  print('Enter URL, beginning with https://')
   url = input()
-  print('Enter target')
+  print('Enter target to search for')
   keyword = input()
   import urllib.request
   import re
