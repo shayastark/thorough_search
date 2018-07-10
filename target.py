@@ -6,8 +6,6 @@ def thorough_search(url, keyword):
   
   url = input('Enter URL, beginning with https://\n')
   keyword = input('Enter target to search for\n')
-  import urllib.request
-  import re
   try:
  # tries for Python 3.x and falls back to Python 2.x urllib2, if needed
     from urllib.request import urlopen
@@ -17,6 +15,7 @@ def thorough_search(url, keyword):
  # defines variable for analyzing web page content
   html_content = (urlopen(url).read())
   matches = re.findall(str(keyword), str(html_content))
+  import re
 
  # creates a list. planning to adjust list functionality 
   new = []
