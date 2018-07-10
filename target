@@ -1,18 +1,21 @@
 # Searches web page for target keyword
 # If located, displays number of occurances
-# Creates list of search targets
 
 def thorough_search(url, keyword):
   
-  print('Enter URL, beginning with https//')
-  url = input()
-  print('Enter target')
-  keyword = input()
+  
+  url = input('Enter URL, beginning with https://\n')
+  keyword = input('Enter target to search for\n')
   import urllib.request
   import re
-  
+  try:
+ # tries for Python 3.x and falls back to Python 2.x urllib2, if needed
+    from urllib.request import urlopen
+  except ImportError:
+    from urllib2 import urlopen
+    
+ # defines variable for analyzing web page content
   html_content = (urllib.request.urlopen(url).read())
-
   matches = re.findall(str(keyword), str(html_content))
 
  # creates a list. planning to adjust list functionality 
@@ -21,18 +24,22 @@ def thorough_search(url, keyword):
   new = matches
   searchy =+ new.count(str(keyword))
   
-  # loop to break redundancy when adding to list
-  for new_list in matches:
-    break
   
-  # rules for printing output
+ # loop to break redundancy when adding to list
+  for new in matches:
+    break
+    return new
+  
+  
+ # rules for printing output
   if len(matches) == 0 or searchy == 0: 
-     print('Target: ' + keyword + ' in ' + url + ' was not found.' + ' Check for spelling errors.')
+     print('Target: ' + keyword + '\n' +' in ' + url + ' was not found.' + '\n' + ' Check for spelling errors.')
   elif len(matches) == 1 or searchy == 1:
-     print('Target: ' + keyword + ' in ' + url + ' was located and appears ' + str(searchy) + ' time.')
+     print('Target: ' + keyword + '\n' + ' in ' + url + ' was located and appears ' + str(searchy) + ' time.')
   
   else:
-     print('Target: ' + keyword + ' in ' + url + ' was located and appears ' + str(searchy) + ' times.')
-
+     print('Target: ' + keyword + '\n' + ' in ' + url + ' was located and appears ' + str(searchy) + ' times.')
+      
+  
 # calls funtion, asks for input, assigns values for (url, keyword)  
 thorough_search(input, input) 
