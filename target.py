@@ -33,13 +33,16 @@ def thorough_search(url, keyword):
   
  # rules for printing output
   if len(matches) == 0 or searchy == 0: 
-     print('Target: ' + keyword + '\n' +' in ' + url + ' was not found.' + '\n' + ' Check for spelling errors.')
+     print('\nTarget: ' + keyword + '\n' +' in ' + url + ' was not found.' + '\n' + ' Check for spelling errors.')
   elif len(matches) == 1 or searchy == 1:
-     print('Target: ' + keyword + '\n' + ' in ' + url + ' was located and appears ' + str(searchy) + ' time.')
+     print('\nTarget: ' + keyword + '\n' + ' in ' + url + ' was located and appears ' + str(searchy) + ' time.')
   
   else:
-     print('Target: ' + keyword + '\n' + ' in ' + url + ' was located and appears ' + str(searchy) + ' times.')
+     print('\nTarget: ' + keyword + '\n' + ' in ' + url + ' was located and appears ' + str(searchy) + ' times.')
       
   
 # calls funtion, asks for input, assigns values for (url, keyword)  
-thorough_search(input, input) 
+thorough_search(input, input)
+
+# displays results until "Enter" is pressed
+input("\n\n\n\n\n\n\n\n\n\nPress Enter to close")
