@@ -11,11 +11,11 @@ def thorough_search(url, keyword):
     from urllib.request import urlopen
   except ImportError or ModuleNotFoundError:
     from urllib2 import urlopen
+  import re
     
  # defines variable for analyzing web page content
   html_content = (urlopen(url).read())
   matches = re.findall(str(keyword), str(html_content))
-  import re
 
  # creates a list. planning to adjust list functionality 
   new = []
