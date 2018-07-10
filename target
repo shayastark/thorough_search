@@ -1,6 +1,5 @@
 # Searches web page for target keyword
 # If located, displays number of occurances
-# Creates list of search targets
 
 def thorough_search(url, keyword):
   
@@ -13,24 +12,27 @@ def thorough_search(url, keyword):
 
   matches = re.findall(str(keyword), str(html_content))
 
- # creates a list. planning to adjust list functionality 
-  new = []
+
+# creates an empty list. planning to add/adjust list functionality
+  new = []    
   
   new = matches
   searchy =+ new.count(str(keyword))
   
-  # loop to break redundancy when adding to list
+# loop to break redundancy when adding to list
+  
   for new_list in matches:
     break
   
-  # rules for printing output
-  if len(matches) == 0: 
-     print('Target: ' + keyword + ' in ' + url + ' was not found.' + ' Check for spelling errors.')
+# rules for printing output
+  
+  if len(matches) == 0 or searchy == 0: 
+     print('Target: ' + keyword + '\n' +' in ' + url + ' was not found.' + '\n' + ' Check for spelling errors.')
   elif len(matches) == 1 or searchy == 1:
-     print('Target: ' + keyword + ' in ' + url + ' was located and appears ' + str(searchy) + ' time.')
+     print('Target: ' + keyword + '\n' + ' in ' + url + ' was located and appears ' + str(searchy) + ' time.')
   
   else:
-     print('Target: ' + keyword + ' in ' + url + ' was located and appears ' + str(searchy) + ' times.')
+     print('Target: ' + keyword + '\n' + ' in ' + url + ' was located and appears ' + str(searchy) + ' times.')
 
 # calls funtion, asks for input, assigns values for (url, keyword)  
-thorough_search(input, input) 
+thorough_search(input, input)
