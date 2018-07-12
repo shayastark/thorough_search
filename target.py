@@ -17,7 +17,7 @@ def thorough_search(url, keyword):
   html_content = (urlopen(url).read())
   matches = re.findall(str(keyword), str(html_content))
 
-  response = "Target `%s` in %s was located and appears %s!" % (keyword, url, pluralize.how_many(len(matches), 'time')) 
+  response = "Target `%s` in `%s` was located and appears %s!" % (keyword, url, pluralize.how_many(len(matches), 'time')) 
   print("\n" + response)
 
 # calls funtion, asks for input, assigns values for (url, keyword)  
