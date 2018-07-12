@@ -3,6 +3,12 @@
 
 def thorough_search(url, keyword):
 
+  # make input() does the job on either 2.x or 3.x
+  try:
+    input = raw_input
+  except NameError:
+    pass
+
   url = input('Enter URL, beginning with https://\n')
   keyword = input('Enter target to search for\n')
   import pluralize
@@ -23,6 +29,11 @@ def thorough_search(url, keyword):
 # calls funtion, asks for input, assigns values for (url, keyword)  
 thorough_search(input, input)
 
+# make input() does the job on either 2.x or 3.x
+try:
+  input = raw_input
+except NameError:
+  pass
 # displays results until "Enter" is pressed
-exit = raw_input("\nPress Enter to close")
+exit = input("\nPress Enter to close")
 print(exit)
