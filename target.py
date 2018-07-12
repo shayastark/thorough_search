@@ -2,8 +2,13 @@
 # If located, displays number of occurances
 
 def thorough_search(url, keyword):
-  
-  
+
+  # make input() does the job on either 2.x or 3.x
+  try:
+    input = raw_input
+  except NameError:
+    pass
+
   url = input('Enter URL, beginning with https://\n')
   keyword = input('Enter target to search for\n')
   import pluralize
@@ -18,11 +23,17 @@ def thorough_search(url, keyword):
   html_content = (urlopen(url).read())
   matches = re.findall(str(keyword), str(html_content))
 
-  response = "Target `%s` in %s was located and appears %s!" % (keyword, url, pluralize.how_many(len(matches), 'time')) 
-  print(response)
+  response = "Target `%s` in `%s` was located and appears %s!" % (keyword, url, pluralize.how_many(len(matches), 'time')) 
+  print("\n" + response)
 
 # calls funtion, asks for input, assigns values for (url, keyword)  
 thorough_search(input, input)
 
+# make input() does the job on either 2.x or 3.x
+try:
+  input = raw_input
+except NameError:
+  pass
 # displays results until "Enter" is pressed
-input("\n\nPress Enter to close")
+exit = input("\nPress Enter to close")
+print(exit)
